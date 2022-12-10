@@ -15,7 +15,7 @@ public class Main {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int cnt = Integer.parseInt(br.readLine());
     StringBuilder sb = new StringBuilder();
-
+      
     for (int i = 0; i < cnt; i++) { // 0 1 2 3 4 5
       sb.append(st(br.readLine())).append("\n");
     }
@@ -25,7 +25,6 @@ public class Main {
 
   private static String st(String str) {
     Stack stack = new Stack();
-
     try {
       for (int j = 0; j < str.length(); j++) {
         char ch = str.charAt(j); // 하나씩 뽑아서
@@ -34,8 +33,6 @@ public class Main {
           stack.push(ch);
         } else if (ch == ')') { // ')'이 들어오면 stack 값 꺼내기
           stack.pop();
-        } else { // ')' 이 들어오면서 값 꺼내지 못해도 NO
-          return "NO";
         }
       }
 
@@ -44,8 +41,8 @@ public class Main {
       } else { // stack에 값이 남았다면 NO
         return "NO";
       }
-    } catch (EmptyStackException e) {
+    } catch (EmptyStackException e) { // ')'값만 남아서 stack에서 꺼낼 값이 없으면 예외처리
       return "NO";
-    }
+    } // trt - catch 마지막
   }
-}
+}    
